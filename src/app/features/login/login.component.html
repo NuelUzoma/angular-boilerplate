@@ -1,0 +1,27 @@
+<div class="page-container">
+    <div class="form-container">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div>
+                <hlm-form-field>
+                    <input class="w-80" hlmInput type="email" placeholder="Email" formControlName="email" />
+                    <hlm-hint>Enter your email address.</hlm-hint>
+                </hlm-form-field>
+            </div>
+            <div>
+                <hlm-form-field>
+                    <input class="w-80" hlmInput type="password" placeholder="Password" formControlName="password" />
+                    <hlm-hint>Enter your password.</hlm-hint>
+                </hlm-form-field>
+            </div>
+            <button type="submit" hlmBtn [disabled]="!loginForm.valid">Login</button>
+        </form>
+    </div>
+    <div class="image-container">
+        <img
+            src="assets/3071357.jpg"
+            alt="Login Image"
+            sizes="(max-width: 768px) 100vw, 50vw"
+            class="w-full h-full object-cover">
+        >
+    </div>
+</div>

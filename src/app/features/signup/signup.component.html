@@ -1,0 +1,36 @@
+<div class="page-container">
+    <div class="form-container">
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+            <div>
+                <hlm-form-field>
+                    <input class="w-80" hlmInput type="name" placeholder="Name" formControlName="name" />
+                    <hlm-hint>Enter your name.</hlm-hint>
+                </hlm-form-field>
+            </div>
+            <div>
+                <hlm-form-field>
+                    <input class="w-80" hlmInput type="email" placeholder="Email" formControlName="email" />
+                    <hlm-hint>Enter your email address.</hlm-hint>
+                </hlm-form-field>
+            </div>
+            <div>
+                <hlm-form-field>
+                    <input class="w-80" hlmInput type="password" placeholder="Password" formControlName="password" />
+                    <hlm-hint>Enter your password.</hlm-hint>
+                </hlm-form-field>
+            </div>
+            <!-- Integrating the Terms and Condition component -->
+            <spartan-checkbox></spartan-checkbox>
+
+            <button type="submit" hlmBtn [disabled]="!signupForm.valid">Sign Up</button>
+        </form>
+    </div>
+    <div class="image-container">
+        <img
+            src="assets/4957136.jpg"
+            alt="Signup Image"
+            sizes="(max-width: 768px) 100vw, 50vw"
+            class="w-full h-full object-cover">
+        >
+    </div>
+</div>

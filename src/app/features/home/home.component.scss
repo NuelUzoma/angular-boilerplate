@@ -1,0 +1,46 @@
+:host {
+  display: block;
+  background-color: #f3f4f6; // Light gray background
+}
+  
+.container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding-top: 0.5rem;
+}
+
+main {
+  padding-top: 2rem; // Adds some space at the top of the main content
+}
+
+.bg-image-container {
+  height: 300px; // Height of the image
+  margin-bottom: 2rem;
+}
+
+.bg-image {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.rounded-image {
+  border-radius: 20px; // Adjust this value to control the roundness
+  overflow: hidden; // Ensures the image doesn't overflow the rounded corners
+}
+  
+@media (max-width: 768px) {
+  .bg-image-container {
+    flex-direction: column;
+  }
+  
+  .bg-image-container > div {
+    width: 100%;
+  }
+  
+  .bg-image {
+    height: 200px; // Adjust this for mobile view
+  }
+}

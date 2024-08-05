@@ -1,0 +1,53 @@
+.page-wrapper {
+    min-height: 0vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.navigation {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    background-color: #333333c5;
+    height: 58px;
+}
+  
+.left-nav {
+    /* Styles for the left side (Home) */
+    display: flex;
+}
+  
+.right-nav {
+    display: flex;
+    gap: 15px; /* Space between Signup and Login */
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+    padding: 5px 10px;
+}
+
+a.active {
+    font-weight: bold;
+}
+
+.custom-signup-btn {
+    color: white;
+}
+
+.custom-login-btn {
+    color: white;
+}
+
+.home-icon {
+    width: 55px;
+    height: 55px;
+    vertical-align: middle;
+}
