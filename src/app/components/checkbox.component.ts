@@ -7,7 +7,7 @@ import { HlmLabelDirective } from '@spartan-ng/ui-label-helm';
 	imports: [HlmLabelDirective, HlmCheckboxComponent ],
 	template: `
 		<label class="flex items-center" hlmLabel>
-			<hlm-checkbox class="mr-2" />
+			<hlm-checkbox class="mr-2 test-md" />
 			Click to accept all terms and conditions
 		</label>
 	`,
