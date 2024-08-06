@@ -4,19 +4,23 @@
 
 :host {
   display: block;
-  background-color: #f3f4f6; // Light gray background
+  background-color: white; // gray background
+  color: rgba(0, 0, 0, 0.718);;
 }
   
 .container {
-  flex-grow: 1;
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
-  padding-top: 0.5rem;
-}
-
-main {
-  padding-top: 2rem; // Adds some space at the top of the main content
+  // flex-grow: 1;
+  // display: flex;
+  // justify-content: flex-start;
+  // flex-direction: column;
+  // padding-top: 0.5rem;
+  width: 90%;
+  // margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  // border: 1px solid red;
 }
 
 .bg-image-container {
@@ -29,29 +33,69 @@ main {
   background-repeat: no-repeat;
 }
 
-.rounded-image {
-  border-radius: 2rem; // Adjust this value to control the roundness
-  overflow: hidden; // Ensures the image doesn't overflow the rounded corners
-}
-
-@media (max-width: 768px) {
-  .bg-image-container {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-  }
+// @media (max-width: 768px) {
+//   .bg-image-container {
+//     margin-top: 2rem;
+//     margin-bottom: 2rem;
+//   }
   
-  .bg-image {
-    height: 200px; // Adjust this for mobile view
+//   .bg-image {
+//     height: 200px;
+//   }
+// }
+
+// @media (max-width: 700px) {
+//   .container > div {
+//     margin-bottom: 2rem;
+//   }
+
+//   .bg-image {
+//     height: auto;
+//     min-height: 200px;
+//   }
+// }
+
+/**Below media queries are for responsiveness for screen sizes
+*/
+
+@media (min-width: 320px) { // smallest screen sizes
+  .container {
+    max-width: 320px;
   }
 }
 
-@media (max-width: 700px) {
-  .container > div {
-    margin-bottom: 2rem;
+@media (min-width: 475px) { // xs
+  .container {
+    max-width: 475px;
   }
+}
 
-  .bg-image {
-    height: auto;
-    min-height: 200px;
+@media (min-width: 640px) { // sm
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) { // md
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) { // lg
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) { // xl
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) { // 2xl
+  .container {
+    max-width: 1536px;
   }
 }

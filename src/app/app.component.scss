@@ -1,5 +1,4 @@
 .page-wrapper {
-    min-height: 0vh;
     display: flex;
     flex-direction: column;
 }
@@ -14,7 +13,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 5px 10px;
-    background-color: #272964;
+    background-color: white;
     height: 58px;
 }
   
@@ -47,7 +46,8 @@ a.active {
 }
 
 .home-icon {
-    width: 55px;
+    color: rgb(226, 226, 236, 0.891);
+    width: 130px;
     height: 55px;
     vertical-align: middle;
 }
