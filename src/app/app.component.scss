@@ -22,7 +22,7 @@
     display: flex;
 }
   
-.right-nav {
+.nav-buttons {
     display: flex;
     gap: 15px; /* Space between Signup and Login */
 }
@@ -50,4 +50,37 @@ a.active {
     width: 130px;
     height: 55px;
     vertical-align: middle;
+}
+
+.nav-menu-toggle {
+    display: none;
+}
+
+.nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.nav-menu a {
+    display: block;
+    padding: 10px;
+}
+
+/* 1024px toggle */
+@media (max-width: 1024px) {
+    .nav-buttons {
+        display: none;
+    }
+    
+    .nav-menu-toggle {
+        display: block;
+    }
+    
+    .nav-menu.show {
+        display: block;
+    }
 }

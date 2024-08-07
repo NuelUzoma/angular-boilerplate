@@ -13,14 +13,91 @@
   // display: flex;
   // justify-content: flex-start;
   // flex-direction: column;
-  // padding-top: 0.5rem;
+  // padding-top: 2.3rem;
   width: 90%;
-  // margin: 0 auto;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  // border: 1px solid red;
+  margin: 0 auto;
+  // margin-left: auto;
+  // margin-right: auto;
+  // padding-left: 0.5rem;
+  // padding-right: 0.5rem;
+  border: 1px solid red;
+}
+
+.first-container {
+  width: 95%;
+  margin: 0 auto;
+  border: 1px solid red;
+  // margin-left: auto;
+  // margin-right: auto;
+  // padding-left: 0.5rem;
+  // padding-right: 0.5rem;
+  
+  @media (max-width: 1024px) {
+    width: 100%;
+    max-width: none;
+
+    .writeup {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 767px) {
+    h4 {
+      display: none;
+    }
+
+    .writeup {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .custom-signup-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  /* Container adjustments for smaller screens*/
+  @media (max-width: 1024px) {
+    min-height: auto; // Remove the minimum height
+    height: auto; // Let the height adjust to content
+    max-height: 100vh; // Limit the maximum height to the viewport height
+
+    .bg-image img {
+      max-height: 50vh; // Limit image height to half of viewport height
+      object-fit: cover; // Ensure the image covers the area without distortion
+    }
+
+    // .first-container {
+    //   padding-top: 1rem;
+    //   padding-bottom: 1rem;
+    // }
+  
+    // .lg\:mb-0 {
+    //   margin-bottom: 1rem !important; // Overrides the larger screen margin
+    // }
+  }
+
+  /* Center the contents and 'Get started' button for < 1024px*/
+  @media (max-width: 1023px) {
+    .writeup {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .custom-signup-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
 }
 
 .bg-image-container {
@@ -32,6 +109,7 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+
 
 // @media (max-width: 768px) {
 //   .bg-image-container {

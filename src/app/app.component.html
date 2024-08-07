@@ -6,8 +6,19 @@
       </a>
     </div>
     <div class="right-nav">
-      <a routerLink="/signup" routerLinkActive="active" hlmBtn class="custom-signup-btn">Signup</a>
-      <a routerLink="/login" routerLinkActive="active" hlmBtn class="custom-login-btn">Login</a>
+      <div class="nav-buttons">
+        <a routerLink="/signup" routerLinkActive="active" hlmBtn class="custom-signup-btn">Signup</a>
+        <a routerLink="/login" routerLinkActive="active" hlmBtn class="custom-login-btn">Login</a>
+      </div>
+
+      <!-- Toggled Nav Bar -->
+      <div class="nav-menu-toggle">
+        <button (click)="toggleMenu()">Menu</button>
+        <div class="nav-menu" [class.show]="isMenuOpen">
+          <a routerLink="/signup" routerLinkActive="active" (click)="isMenuOpen = false">Signup</a>
+          <a routerLink="/login" routerLinkActive="active" (click)="isMenuOpen = false">Login</a>
+        </div>
+      </div>
     </div>
   </nav>
 </div>
