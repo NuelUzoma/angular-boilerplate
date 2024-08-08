@@ -1,0 +1,33 @@
+<div class="page-container">
+    <section class="user-container">
+        <div class="username-container">
+            <h4 class="text-2xl sm:text-1xl font-normal">Hi, user!</h4>
+        </div>
+        <div class="footer-container">
+            <a routerLink="/logout" routerLinkActive="active" hlmBtn class="custom-logout-btn mt-8">Logout</a>
+        </div>
+    </section>
+    
+    <section class="main-container">
+        <div class="hero-container">
+            <div class="wallet-balance-container">
+                <h4>Balance:</h4>
+            </div>
+            <div class="user-settings-container">
+                Settings
+            </div>
+        </div>
+        <div class="wallets">
+            <div class="deposit-container">
+                <h3>Deposit</h3>
+                <p>Deposit your funds here.</p>
+                <a routerLink="/deposit" hlmBtn class="deposit-link">Deposit</a>
+            </div>
+            <div class="wallet-transfer-container">
+                <h3>Transfer</h3>
+                <p>Transfer your funds to another wallet.</p>
+                <a routerLink="/transfer" hlmBtn class="transfer-link">Transfer</a>
+            </div>
+        </div>
+    </section>
+</div>
