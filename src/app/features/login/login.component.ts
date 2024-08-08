@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
-import { AuthService } from "../../services/api.service";
+import { AuthService } from "../../services/auth.service";
+import { Router } from "@angular/router";
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from "@angular/forms";
 import { HlmButtonDirective } from "../../../../components/ui-button-helm/src/lib/hlm-button.directive";
 import { HlmInputDirective } from "../../../../components/ui-input-helm/src/lib/hlm-input.directive";
@@ -17,7 +18,8 @@ export class LoginComponent {
 
     constructor(
         private fb: FormBuilder,
-        private authService: AuthService
+        private authService: AuthService,
+        private router: Router
     ) {
         this.loginForm = this.fb.group({
             email: ['', [Validators.required, Validators.email]],
@@ -27,9 +29,21 @@ export class LoginComponent {
 
     onSubmit() {
         if (this.loginForm.valid) {
-            this.authService.login(this.loginForm.value).subscribe(
-                response => console.log('Login successful', response),
-                error => console.error('Login failed', error)
+            this.authService.login(this.loginForm.value).subscribe({
+                next: (response) => {
+                    // Store the JWT Token in localStorage
+                    localStorage.setItem('token', response.token);
+
+                    // Redirect user to the dashboard
+                    this.router.navigate(['/dashboard']);
+
+                    console.log('Login successful');
+                },
+                error: (error) => {
+                    // Handle any error that occur
+                    console.error('Login error:', error);
+                }
+            }
             );
         }
     }

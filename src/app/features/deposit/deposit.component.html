@@ -1,0 +1,11 @@
+<div class="deposit-container">
+    <form [formGroup]="depositForm" (ngSubmit)="onSubmit()">
+        <div>
+            <hlm-form-field>
+                <input class="w-80" hlmInput type="deposit" placeholder="Deposit Amount" formControlName="amount" />
+                <hlm-hint>Enter deposit amount.</hlm-hint>
+            </hlm-form-field>
+        </div>
+        <button type="submit" hlmBtn [disabled]="!depositForm.valid">Deposit</button>
+    </form>
+</div>

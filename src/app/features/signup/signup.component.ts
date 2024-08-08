@@ -2,7 +2,7 @@ import { Component } from "@angular/core";
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { routes } from "../../app.routes";
-import { AuthService } from "../../services/api.service";
+import { AuthService } from "../../services/auth.service";
 import { HlmButtonDirective } from "../../../../components/ui-button-helm/src/lib/hlm-button.directive";
 import { HlmInputDirective } from "../../../../components/ui-input-helm/src/lib/hlm-input.directive";
 import { HlmFormFieldModule } from "../../../../components/ui-formfield-helm/src/index";

@@ -10,8 +10,9 @@ export class AuthService {
         private httpClient: HttpClient
     ) {}
 
-    private signupUrl = 'http://localhost:5145/api/user/signup';
-    private loginUrl = 'http://localhost:5145/api/auth/login';
+    private signupUrl = 'http://localhost:5052/api/user/signup';
+    private loginUrl = 'http://localhost:5052/api/auth/login';
+    private getUserUrl = 'http://localhost:5052/api/user'
 
     // Signup Request
     signup(userData: any): Observable<any> {
