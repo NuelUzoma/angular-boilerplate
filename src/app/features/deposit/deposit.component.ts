@@ -57,6 +57,7 @@ export class DepositComponent implements OnInit {
     }
 
     ngOnInit() {
+        // Load the transactions when components are fully loaded
         this.loadTransactions();
     }
 
