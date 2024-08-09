@@ -1,22 +1,50 @@
-import { Component } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { HlmButtonDirective } from "../../../../components/ui-button-helm/src/lib/hlm-button.directive";
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
 import { Router, RouterLink, RouterLinkActive, RouterOutlet } from "@angular/router";
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatSort, MatSortModule } from '@angular/material/sort';
 import { HlmInputDirective } from "../../../../components/ui-input-helm/src/lib/hlm-input.directive";
 import { HlmFormFieldModule } from "../../../../components/ui-formfield-helm/src/index";
 import { WalletService } from "../../services/wallet.service";
 
+export interface DepositTransaction {
+    amount: number,
+    status: string,
+    timestamp: Date
+}
+
 @Component({
     selector: 'app-home',
     standalone: true,
-    imports: [ReactiveFormsModule, RouterOutlet, RouterLink, HlmInputDirective, RouterLinkActive, HlmButtonDirective, HlmFormFieldModule,],
+    imports: [
+        ReactiveFormsModule,
+        RouterOutlet,
+        RouterLink,
+        HlmInputDirective,
+        RouterLinkActive,
+        HlmButtonDirective,
+        HlmFormFieldModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatSortModule
+    ],
     templateUrl: './deposit.component.html',
     styleUrls: ['./deposit.component.scss']
 })
-export class DepositComponent {
+export class DepositComponent implements OnInit {
     depositForm: FormGroup;
     paymentUrl!: string;
     reference!: string;
+
+    // Displayed columns for deposit transactions
+    displayedColumns: string[] = ['amount', 'status', 'timestamp'];
+    transactions = new MatTableDataSource<DepositTransaction>([]);
+
+    // Paginator and Sorting for the Data Table (Transactions)
+    @ViewChild(MatPaginator) paginator!: MatPaginator;
+    @ViewChild(MatSort) sort!: MatSort;
 
     constructor(
         private fb: FormBuilder,
@@ -26,6 +54,10 @@ export class DepositComponent {
         this.depositForm = this.fb.group({
             amount: ['', Validators.required],
         });
+    }
+
+    ngOnInit() {
+        this.loadTransactions();
     }
 
     onSubmit(){
@@ -67,6 +99,20 @@ export class DepositComponent {
           error: (error) => {
             // Handle any errors that occur during the deposit verification
             console.error('Error verifying deposit:', error);
+          }
+        });
+    }
+
+    // Retrieve deposit transactions from the database
+    loadTransactions() {
+        this.walletService.depositTransactions().subscribe({
+          next: (data: DepositTransaction[]) => {
+            this.transactions.data = data;
+            this.transactions.paginator = this.paginator;
+            this.transactions.sort = this.sort;
+          },
+          error: (error) => {
+            console.error('Error fetching transactions:', error);
           }
         });
     }
