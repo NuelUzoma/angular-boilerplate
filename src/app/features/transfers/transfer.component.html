@@ -1,0 +1,17 @@
+<div class="transfer-container">
+    <form [formGroup]="transferForm" (ngSubmit)="onSubmit()">
+        <div>
+            <hlm-form-field>
+                <input class="w-80" hlmInput type="transfer" placeholder="Transfer Amount" formControlName="amount" />
+                <hlm-hint>Input transfer amount.</hlm-hint>
+            </hlm-form-field>
+        </div>
+        <div>
+            <hlm-form-field>
+                <input class="w-80" hlmInput type="userId" placeholder="userId" formControlName="recipientUserId" />
+                <hlm-hint>Enter the recipient user ID</hlm-hint>
+            </hlm-form-field>
+        </div>
+        <button type="submit" hlmBtn [disabled]="!transferForm.valid">Transfer</button>
+    </form>
+</div>
