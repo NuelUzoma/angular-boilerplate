@@ -9,16 +9,16 @@
     display: flex;
     height: 100vh; // Full viewport height
     width: 100%; // Full width
-    border: 1px solid red;
+    // border: 1px solid red;
 }
 
 .user-container {
-    width: 25%; // 1/4 of the page
+    width: 20%; // 1/4 of the page
     position: fixed;
     top: 0;
     left: 0;
     height: 100vh; // Full viewport height
-    border: 1px solid red;
+    // border: 1px solid red;
     background-color: rgba(0, 0, 255, 0.897); /* Set the background color to blue */
     display: flex;
     flex-direction: column;
@@ -27,7 +27,7 @@
 
 .username-container {
   padding: 1rem; /* Add some padding to the username container */
-  border: 1px solid red;
+  // border: 1px solid red;
   color: rgb(209, 206, 216);
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-weight: 200;
@@ -37,7 +37,7 @@
 .footer-container {
   padding: 1rem; /* Add some padding to the footer container */
   text-align: right; /* Align the logout button to the right */
-  border: 1px solid red;
+  // border: 1px solid red;
   color: white;
 }
 
@@ -50,22 +50,22 @@
 }
 
 .main-container {
-    width: 75%; // 3/4 of the page
-    margin-left: 25%; // Push the main container to the right
-    border: 1px solid red;
+    width: 80%; // 3/4 of the page
+    margin-left: 20%; // Push the main container to the right
+    // border: 1px solid red;
     min-height: 100vh; // Ensure it's at least full viewport height
     overflow-y: auto; // Allow vertical scrolling
     display: flex;
     flex-direction: column;
-    background-color: rgba(192, 192, 192, 0.418);
+    background-color: #f2f2f2 // alabaster
 }
 
 .hero-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  // display: flex;
+  // justify-content: space-between;
+  // align-items: center;
   padding: 1rem;
-  border-bottom: 1px solid #ccc;
+  // border-bottom: 1px solid #ccc;
 }
 
 .wallet-balance,
@@ -76,7 +76,7 @@
 .wallets {
   display: flex;
   flex-direction: row;
-  padding-top: 12rem;
+  padding-top: 2rem;
   justify-content: space-between;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -85,15 +85,9 @@
 .deposit-container {
   display: flex;
   flex-direction: column;
-  border: 1px solid red round($number: 100);
   align-items: left;
   padding: 1rem;
   width: 40%;
-  background-color: rgba(35, 35, 78, 0.738);
-  color: whitesmoke;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-weight: 200;
-  font-style: inherit;
   // border-bottom: 1px solid #ccc;
 }
 
@@ -101,15 +95,9 @@
   display: flex;
   flex-direction: column;
   width: 40%;
-  border: 1px solid red round($number: 100);
   align-items: left;
   padding: 1rem;
   height: 30vh;
-  background-color: rgba(21, 21, 41, 0.674);
-  color: whitesmoke;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-weight: 200;
-  font-style: inherit;
   // border-bottom: 1px solid #ccc;
 }
 

@@ -1,7 +1,7 @@
 <div class="page-container">
     <section class="user-container">
         <div class="username-container">
-            <h4 class="text-2xl sm:text-1xl font-normal">Hi, user!</h4>
+            <a routerLink="/dashboard" routerLinkActive="active" class="text-2xl sm:text-1xl font-normal">Welcome</a>
         </div>
         <div class="footer-container">
             <a routerLink="/logout" routerLinkActive="active" hlmBtn class="custom-logout-btn mt-8">Logout</a>
@@ -11,22 +11,31 @@
     <section class="main-container">
         <div class="hero-container">
             <div class="wallet-balance-container">
-                <h4>Balance: {{ wallet?.balance }}</h4>
+                <p-card>
+                    <ng-template pTemplate="header">
+                        {{ wallet?.balance }}
+                    </ng-template>
+                    <p class="m-0">
+                        Total Balance
+                    </p>
+                </p-card>
             </div>
-            <div class="user-settings-container">
+            <!-- <div class="user-settings-container">
                 Settings
-            </div>
+            </div> -->
         </div>
         <div class="wallets">
             <div class="deposit-container">
-                <h3>Deposit</h3>
+                <!-- <h3>Deposit</h3>
                 <p>Deposit your funds here.</p>
-                <a routerLink="/deposit" hlmBtn class="deposit-link">Deposit</a>
+                <a routerLink="/deposit" hlmBtn class="deposit-link">Deposit</a> -->
+                <deposit-card-template></deposit-card-template>
             </div>
             <div class="wallet-transfer-container">
-                <h3>Transfer</h3>
+                <!-- <h3>Transfer</h3>
                 <p>Transfer your funds to another wallet.</p>
-                <a routerLink="/transfer" hlmBtn class="transfer-link">Transfer</a>
+                <a routerLink="/transfer" hlmBtn class="transfer-link">Transfer</a> -->
+                <transfer-card-template></transfer-card-template>
             </div>
         </div>
     </section>

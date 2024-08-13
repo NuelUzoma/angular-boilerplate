@@ -1,17 +1,28 @@
 import { Component } from "@angular/core";
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
-import { Router } from "@angular/router";
+import { Router, RouterLink, RouterLinkActive, RouterOutlet } from "@angular/router";
 import { routes } from "../../app.routes";
 import { AuthService } from "../../services/auth.service";
 import { HlmButtonDirective } from "../../../../components/ui-button-helm/src/lib/hlm-button.directive";
 import { HlmInputDirective } from "../../../../components/ui-input-helm/src/lib/hlm-input.directive";
 import { HlmFormFieldModule } from "../../../../components/ui-formfield-helm/src/index";
 import { CheckboxComponent } from "../../components/checkbox.component";
+import { ButtonModule } from "primeng/button";
 
 @Component({
     selector: 'app-signup',
     standalone: true,
-    imports: [ReactiveFormsModule, HlmButtonDirective, HlmInputDirective, HlmFormFieldModule, CheckboxComponent],
+    imports: [
+        ReactiveFormsModule,
+        HlmButtonDirective,
+        HlmInputDirective,
+        HlmFormFieldModule,
+        CheckboxComponent,
+        RouterLink,
+        RouterLinkActive,
+        RouterOutlet,
+        ButtonModule
+    ],
     templateUrl: './signup.component.html', // Link to html form template
     styleUrls: ['./signup.component.scss'] // Link to scss styling
 })
