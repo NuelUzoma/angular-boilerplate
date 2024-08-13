@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from "@angular/router";
 import { HlmButtonDirective } from '../../../../components/ui-button-helm/src/lib/hlm-button.directive';
 import { WalletService } from '../../services/wallet.service';
+import { DepositCardTemplate } from '../../components/depositCard.component';
+import { TransferCardTemplate } from '../../components/transferCard.component';
+import { CardModule } from 'primeng/card';
 
 // Wallet interface
 export interface Wallet {
@@ -17,7 +20,10 @@ export interface Wallet {
       RouterOutlet,
       RouterLink,
       RouterLinkActive,
-      HlmButtonDirective
+      HlmButtonDirective,
+      DepositCardTemplate,
+      TransferCardTemplate,
+      CardModule
     ],
     templateUrl: './dashboard.component.html',
     styleUrl: './dashboard.component.scss'

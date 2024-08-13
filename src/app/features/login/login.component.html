@@ -14,6 +14,9 @@
                 </hlm-form-field>
             </div>
             <button type="submit" hlmBtn [disabled]="!loginForm.valid">Login</button>
+            <p>Don't have an account? 
+                <p-button label="Signup" [link]="true" routerLink="/signup"></p-button>
+            </p>
         </form>
     </div>
     <div class="image-container">

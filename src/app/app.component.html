@@ -1,5 +1,5 @@
 <div class="page-wrapper">
-  <nav class="navigation">
+  <nav class="navigation" *ngIf="showNavigation">
     <div class="left-nav">
       <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
         <img src="assets/icon2.jpg" alt="Home" class="home-icon"/>

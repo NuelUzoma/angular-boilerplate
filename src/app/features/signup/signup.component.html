@@ -23,6 +23,9 @@
             <spartan-checkbox></spartan-checkbox>
 
             <button type="submit" hlmBtn [disabled]="!signupForm.valid">Sign Up</button>
+            <p>Already have an account?
+                <p-button label="Login" [link]="true" routerLink="/login"></p-button>
+            </p> 
         </form>
     </div>
     <div class="image-container">

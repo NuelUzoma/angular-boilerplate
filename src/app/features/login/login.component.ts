@@ -1,15 +1,25 @@
 import { Component } from "@angular/core";
 import { AuthService } from "../../services/auth.service";
-import { Router } from "@angular/router";
+import { Router, RouterLink, RouterLinkActive, RouterOutlet } from "@angular/router";
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from "@angular/forms";
 import { HlmButtonDirective } from "../../../../components/ui-button-helm/src/lib/hlm-button.directive";
 import { HlmInputDirective } from "../../../../components/ui-input-helm/src/lib/hlm-input.directive";
 import { HlmFormFieldModule } from "../../../../components/ui-formfield-helm/src/index";
+import { ButtonModule } from "primeng/button";
 
 @Component({
     selector: 'app-login',
     standalone: true,
-    imports: [ReactiveFormsModule, HlmButtonDirective, HlmInputDirective, HlmFormFieldModule],
+    imports: [
+        ReactiveFormsModule,
+        HlmButtonDirective,
+        HlmInputDirective,
+        HlmFormFieldModule,
+        RouterLink,
+        RouterLinkActive,
+        RouterOutlet,
+        ButtonModule
+    ],
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.scss']
 })
