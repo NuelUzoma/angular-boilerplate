@@ -11,6 +11,7 @@ import { HlmInputDirective } from "../../../../components/ui-input-helm/src/lib/
 import { HlmFormFieldModule } from "../../../../components/ui-formfield-helm/src/index";
 import { WalletService } from "../../services/wallet.service";
 import { TransferSuccessDialogComponent } from "../../components/transferSuccessDialog.component";
+import { Observable } from "rxjs";
 
 export interface DebitTransaction {
     recipientId: number,
@@ -95,8 +96,10 @@ export class TransferComponent implements OnInit {
 
                     // Display a dialog box when the transfer is successful
                     if (response.message === "Transfer Successful") {
-                        this.openSuccessDialog();
-                        this.router.navigate(['/dashboard']);
+                        this.openSuccessDialog().subscribe(() => {
+                            // Route to dashboard after the transfer is complete
+                            this.router.navigate(['/dashboard']);
+                        });
                     }
 
                     // Reset the form and generate a new idempotency key for the next transfer
@@ -117,10 +120,11 @@ export class TransferComponent implements OnInit {
     }
 
     // Display a success dialog after the transfer is complete
-    openSuccessDialog(): void {
-        this.dialog.open(TransferSuccessDialogComponent, {
+    openSuccessDialog(): Observable<void> {
+        const dialogRef = this.dialog.open(TransferSuccessDialogComponent, {
           width: '250px'
         });
+        return dialogRef.afterClosed();
     }
 
     // Retrieve debit and credit transactions

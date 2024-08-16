@@ -6,7 +6,6 @@ import { DepositCardTemplate } from '../../components/depositCard.component';
 import { TransferCardTemplate } from '../../components/transferCard.component';
 import { CardModule } from 'primeng/card';
 import { AuthService } from '../../services/auth.service';
-import { response } from 'express';
 
 // Wallet interface
 export interface Wallet {
@@ -61,7 +60,11 @@ export class DashboardComponent implements OnInit {
       },
       error: (error) => {
         console.log('Logout Error', error);
+      },
+      complete: () => {
+        // This will run regardless of success or error
+        this.router.navigate(['/']);
       }
-    })
+    });
   }
 }
