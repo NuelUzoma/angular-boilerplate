@@ -16,13 +16,28 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from "@angular/router";
                 </p>
                 <ng-template pTemplate="footer">
                     <div class="flex gap-1 mt-1">
-                        <p-button routerLink="/transfer" label="Transfer" class="w-full" styleClass="w-full"/>
+                        <p-button routerLink="/transfer" label="Transfer" class="w-full transfer" styleClass="w-full"/>
                     </div>
                 </ng-template>
             </p-card>
         </div>
     `,
     standalone: true,
-    imports: [CardModule, ButtonModule, RouterLink, RouterOutlet, RouterLinkActive]
+    imports: [
+        CardModule,
+        ButtonModule,
+        RouterLink,
+        RouterOutlet,
+        RouterLinkActive
+    ],
+    styles: `
+    .transfer {
+        background-color: blue;
+        color: whitesmoke;
+        border: round;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    `
 })
 export class TransferCardTemplate {}

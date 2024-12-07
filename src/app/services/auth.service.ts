@@ -12,7 +12,7 @@ export class AuthService {
 
     private signupUrl = 'http://localhost:5052/api/user/signup';
     private loginUrl = 'http://localhost:5052/api/auth/login';
-    private getUserUrl = 'http://localhost:5052/api/user'
+    private logoutUrl = 'http://localhost:5052/api/user/logout'
 
     // Signup Request
     signup(userData: any): Observable<any> {
@@ -22,5 +22,11 @@ export class AuthService {
     // Login Request
     login(credentials: any): Observable<any> {
         return this.httpClient.post(this.loginUrl, credentials);
+    }
+
+    // Logout Request
+    logout(): Observable<any> {
+        // @ts-ignore
+        return this.httpClient.post(this.logoutUrl);
     }
 }

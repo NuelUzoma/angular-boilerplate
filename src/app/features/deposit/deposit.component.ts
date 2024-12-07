@@ -68,13 +68,16 @@ export class DepositComponent implements OnInit {
                     this.paymentUrl = response.paymentUrl;
                     this.reference = response.reference;
 
+                    // Store the reference for later verification
+                    localStorage.setItem('pendingDepositReference', response.reference);
+
                     // Navigate to paystack page from the deposit response
                     this.navigateToPaymentPage();
 
-                    // Wait for 10 seconds before verifying the deposit
+                    // Wait for 30 seconds before verifying the deposit
                     setTimeout(() => {
                         this.verifyDeposit();
-                    }, 10000); // 10seconds
+                    }, 30000); // 30seconds
                 },
                 error: (error) => {
                     // Handle any errors that occur during the deposit initiation
@@ -91,17 +94,25 @@ export class DepositComponent implements OnInit {
 
     // Verify the payment reference
     verifyDeposit() {
-        this.walletService.verifyDeposit(this.reference).subscribe({
-          next: (response) => {
-            // Handle the successful deposit verification
-            console.log('Deposit verified successfully:', response);
-            this.router.navigate(['/dashboard']);
-          },
-          error: (error) => {
-            // Handle any errors that occur during the deposit verification
-            console.error('Error verifying deposit:', error);
-          }
-        });
+        // Fetch the reference from the local storage
+        const reference = localStorage.getItem('pendingDepositReference');
+        
+        if (reference) {
+            this.walletService.verifyDeposit(reference).subscribe({
+                next: (response) => {
+                  // Handle the successful deposit verification
+                  console.log('Deposit verified successfully:', response);
+                  this.router.navigate(['/dashboard']); // Reroute back to dashboard
+
+                  // Delete the reference saved to the localStorage
+                  localStorage.removeItem('pendingDepositReference');
+                },
+                error: (error) => {
+                  // Handle any errors that occur during the deposit verification
+                  console.error('Error verifying deposit:', error);
+                }
+            });
+        }
     }
 
     // Retrieve deposit transactions from the database

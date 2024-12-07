@@ -16,13 +16,28 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from "@angular/router";
                 </p>
                 <ng-template pTemplate="footer">
                     <div class="flex gap-1 mt-1">
-                        <p-button routerLink="/deposit" label="Deposit" class="w-full" styleClass="w-full"/>
+                        <p-button routerLink="/deposit" label="Deposit" class="w-full deposit" styleClass="w-full"/>
                     </div>
                 </ng-template>
             </p-card>
         </div>
     `,
     standalone: true,
-    imports: [CardModule, ButtonModule, RouterLink, RouterOutlet, RouterLinkActive]
+    imports: [
+        CardModule,
+        ButtonModule,
+        RouterLink,
+        RouterOutlet,
+        RouterLinkActive
+    ],
+    styles: `
+    .deposit {
+        background-color: blue;
+        color: whitesmoke;
+        border: round;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    `
 })
 export class DepositCardTemplate {}
